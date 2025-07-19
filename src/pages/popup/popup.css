@@ -1,5 +1,6 @@
 .popup-main {
-  width: 320px;
+  width: 100%;
+  margin: 0;
   padding: 16px;
   background: var(--bg-primary);
   border-radius: var(--radius-lg);

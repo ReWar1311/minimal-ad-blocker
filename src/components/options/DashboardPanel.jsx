@@ -51,34 +51,6 @@ const DashboardPanel = ({
         </div>
       </div>
 
-      {/* Activity Summary */}
-      <div className="activity-section">
-        <h3 className="section-title">RECENT ACTIVITY</h3>
-        <div className="activity-list">
-          <div className="activity-item">
-            <span className="activity-time">NOW</span>
-            <span className="activity-text">System protection {isBlocking ? 'active' : 'disabled'}</span>
-          </div>
-          {blockedDomains?.length > 0 && (
-            <div className="activity-item">
-              <span className="activity-time">RULES</span>
-              <span className="activity-text">{blockedDomains.length} blocking rules loaded</span>
-            </div>
-          )}
-          {whitelistSites?.length > 0 && (
-            <div className="activity-item">
-              <span className="activity-time">ACCESS</span>
-              <span className="activity-text">{whitelistSites.length} sites whitelisted</span>
-            </div>
-          )}
-          {blockedDomains?.length > 0 && (
-            <div className="activity-item">
-              <span className="activity-time">RULES</span>
-              <span className="activity-text">{blockedDomains.length} domains actively blocked</span>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   )
 }
