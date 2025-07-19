@@ -1,0 +1,24 @@
+{
+  "name": "minimal-ad-blocker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "build:watch": "vite build --watch",
+    "zip": "cd dist && zip -r ../extension.zip ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "@vitejs/plugin-react": "^4.1.1",
+    "vite": "^5.0.0",
+    "vite-plugin-static-copy": "^0.17.0"
+  }
+}
