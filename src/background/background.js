@@ -26,21 +26,36 @@ chrome.runtime.onInstalled.addListener(async () => {
   }
 })
 
+console.log('Debug mode available:', !!chrome.declarativeNetRequest?.onRuleMatchedDebug);
+
 if (chrome.declarativeNetRequest?.onRuleMatchedDebug) {
   chrome.declarativeNetRequest.onRuleMatchedDebug.addListener(async (details) => {
-    if (details.rule.rulesetId === RULESET_IDS.DEFAULT) {
+    // console.log('Rule matched:', details.rule.ruleId, 'for URL:', details.request.url);
+    
+    if (true) {
       try {
-        const result = await chrome.storage.local.get([STORAGE_KEYS.BLOCKED_COUNT])
-        const count = (result[STORAGE_KEYS.BLOCKED_COUNT] || 0) + 1
-        await chrome.storage.local.set({ [STORAGE_KEYS.BLOCKED_COUNT]: count })
+        // Use atomic operation to prevent race conditions
+        const newCount = await new Promise((resolve) => {
+          chrome.storage.local.get([STORAGE_KEYS.BLOCKED_COUNT], (result) => {
+            // console.log('Current count:', result[STORAGE_KEYS.BLOCKED_COUNT]);
+            const currentCount = result[STORAGE_KEYS.BLOCKED_COUNT] || 0;
+            const newCount = currentCount + 1;
+            chrome.storage.local.set({ [STORAGE_KEYS.BLOCKED_COUNT]: newCount }, () => {
+              resolve(newCount);
+            });
+          });
+        });
         
-        console.log('Blocked request:', details.request.url)
+        // console.log('Blocked request:', details.request.url, 'Total blocked:', newCount);
+        
+        // Update badge with count for visual feedback
+        chrome.action.setBadgeText({ text: newCount.toString() });
       } catch (error) {
-        console.error('Failed to update blocked count:', error)
+        console.error('Failed to update blocked count:', error);
       }
     }
-  })
-}
+  });
+} 
 
 chrome.storage.onChanged.addListener(async (changes, namespace) => {
   if (namespace === 'local' && changes[STORAGE_KEYS.BLOCKING_ENABLED]) {

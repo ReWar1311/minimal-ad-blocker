@@ -33,7 +33,10 @@ export const FAMOUS_SITES_AD_MAPPING = {
     'googletagservices.com',
     'ggpht.com/api/stats',
     'youtube.com/pagead',
-    'youtube.com/ptracking'
+    'youtube.com/ptracking',
+    "*/pagead/*",
+    "*/ad_break/*"
+
   ],
   'jiohotstar.com': [ 
       "hesads.akamaized.net",

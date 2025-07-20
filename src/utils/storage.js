@@ -46,8 +46,17 @@ export const storage = {
   },
 
   incrementBlockedCount: async () => {
-    const count = await storage.getBlockedCount()
-    return storage.set({ [STORAGE_KEYS.BLOCKED_COUNT]: count + 1 })
+    // Get the current blocked count directly within the function
+    // that will update it to avoid race conditions
+    return new Promise((resolve) => {
+      chrome.storage.local.get([STORAGE_KEYS.BLOCKED_COUNT], (data) => {
+        const currentCount = data[STORAGE_KEYS.BLOCKED_COUNT] || 0;
+        const newCount = currentCount + 1;
+        chrome.storage.local.set({ [STORAGE_KEYS.BLOCKED_COUNT]: newCount }, () => {
+          resolve(newCount);
+        });
+      });
+    });
   },
 
   resetBlockedCount: async () => {
