@@ -81,7 +81,7 @@ const OptionsApp = () => {
     <div className="options-app">
       <div className="app-header">
         <div className="header-brand">
-          <div className="header-logo">⚡</div>
+          <div className="header-logo"><img src="/icons/icon.png" alt="Logo" /></div>
           <div className="header-title">SHIELD CONTROL CENTER</div>
         </div>
         <div className="header-status">

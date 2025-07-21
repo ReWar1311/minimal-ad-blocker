@@ -44,6 +44,9 @@ export default defineConfig({
       }
     }
   ],
+  server: {
+    open: '/src/pages/options/index.html'
+  },
   build: {
     rollupOptions: {
       input: {

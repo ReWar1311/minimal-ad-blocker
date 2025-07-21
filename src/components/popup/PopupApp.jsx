@@ -16,7 +16,7 @@ const PopupApp = () => {
   return (
     <div className="popup-main">
       <div className="brand-section">
-        <div className="brand-logo">⚡</div>
+        <div className="brand-logo"><img src="/icons/icon.png" alt="Logo" /></div>
         <div className="brand-info">
           <h1 className="brand-name">SHIELD</h1>
           <p className="brand-status">{isBlocking ? 'ACTIVE' : 'DISABLED'}</p>

@@ -1,6 +1,27 @@
 import React, { useState, useMemo } from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import BlockIcon from '@mui/icons-material/Block'
+import HandymanIcon from '@mui/icons-material/Handyman';
+import SecurityIcon from '@mui/icons-material/Security';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import SearchIcon from '@mui/icons-material/Search';
+import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
+import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebook';
+import WebIcon from '@mui/icons-material/Language';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import RedditIcon from '@mui/icons-material/Reddit';
+import StarIcon from '@mui/icons-material/Star';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GoogleIcon from '@mui/icons-material/Google';
+import QueueMusicIcon from '@mui/icons-material/QueueMusic';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+
+// import TikTokIcon from '@mui/icons-material/TikTok';
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -163,14 +184,19 @@ const RulesPanel = ({
 
   const getSiteIcon = (site) => {
     const icons = {
-      'youtube.com': '📺',
-      'facebook.com': '👥',
-      'twitter.com': '🐦',
-      'instagram.com': '📷',
-      'reddit.com': '🤖',
-      'tiktok.com': '🎵'
+      'youtube.com': <YouTubeIcon />,
+      'facebook.com': <FacebookIcon />,
+      'twitter.com': <TwitterIcon />,
+      'instagram.com': <InstagramIcon />,
+      'reddit.com': <RedditIcon />,
+      'jiohotstar.com': <StarIcon />,
+      // 'tiktok.com': <TikTokIcon />,
+      'linkedin.com': <LinkedInIcon />,
+      'google.com': <GoogleIcon />,
+      'spotify.com': <QueueMusicIcon />,
+      'pinterest.com': <PinterestIcon />,
     }
-    return icons[site] || '🌐'
+    return icons[site] || <WebIcon />
   }
 
   return (
@@ -187,7 +213,7 @@ const RulesPanel = ({
           onClick={() => toggleSection('overview')}
         >
           <div className="header-title">
-            <span className="header-icon">📊</span>
+            <span className="header-icon"><FormatListBulletedIcon /></span>
             <h3>RULES OVERVIEW</h3>
             <span className="rules-count">{blockedDomains.length} Active Rules</span>
           </div>
@@ -214,7 +240,7 @@ const RulesPanel = ({
               <div className="stats-breakdown">
                 <div className="stat-item custom">
                   <div className="stat-header">
-                    <div className="stat-icon custom">🔧</div>
+                    <div className="stat-icon custom"><HandymanIcon /></div>
                     <div className="stat-title">CUSTOM RULES</div>
                   </div>
                   <div className="stat-value">{domainStats.custom}</div>
@@ -223,7 +249,7 @@ const RulesPanel = ({
 
                 <div className="stat-item platform">
                   <div className="stat-header">
-                    <div className="stat-icon platform">⭐</div>
+                    <div className="stat-icon platform"><LaptopChromebookIcon /></div>
                     <div className="stat-title">PLATFORM RULES</div>
                   </div>
                   <div className="stat-value">{domainStats.platformSpecific}</div>
@@ -232,7 +258,7 @@ const RulesPanel = ({
 
                 <div className="stat-item predefined">
                   <div className="stat-header">
-                    <div className="stat-icon predefined">🛡️</div>
+                    <div className="stat-icon predefined"><SecurityIcon /></div>
                     <div className="stat-title">PREDEFINED RULES</div>
                   </div>
                   <div className="stat-value">{domainStats.predefined}</div>
@@ -251,7 +277,7 @@ const RulesPanel = ({
           onClick={() => toggleSection('addRule')}
         >
           <div className="header-title">
-            <span className="header-icon">➕</span>
+            <span className="header-icon"><PlaylistAddIcon /></span>
             <h3>ADD NEW RULE</h3>
           </div>
           <button className={`expand-button ${expandedSections.addRule ? 'expanded' : ''}`}>
@@ -296,7 +322,7 @@ const RulesPanel = ({
           onClick={() => toggleSection('blockedDomains')}
         >
           <div className="header-title">
-            <span className="header-icon">🚫</span>
+            <span className="header-icon"><BlockIcon /></span>
             <h3>ACTIVE BLOCKING RULES</h3>
             <span className="rules-count">{blockedDomains.length} Rules</span>
           </div>
@@ -355,7 +381,7 @@ const RulesPanel = ({
 
             {filteredDomains.length === 0 ? (
               <div className="empty-state">
-                <div className="empty-icon">🔍</div>
+                <div className="empty-icon"><SearchIcon /></div>
                 <p className="empty-message">No matching rules found</p>
                 <p className="empty-suggestion">
                   {searchTerm ? 'Try a different search term' : 'Add your first rule using the form above'}
@@ -419,7 +445,7 @@ const RulesPanel = ({
           onClick={() => toggleSection('popularPlatforms')}
         >
           <div className="header-title">
-            <span className="header-icon">⭐</span>
+            <span className="header-icon"><LaptopChromebookIcon /></span>
             <h3>POPULAR PLATFORMS</h3>
             <span className="enabled-count">
               {Object.values(famousSitesConfig).filter(Boolean).length} Enabled
@@ -501,7 +527,7 @@ const RulesPanel = ({
           onClick={() => toggleSection('commonAdSites')}
         >
           <div className="header-title">
-            <span className="header-icon">📋</span>
+            <span className="header-icon"><DynamicFeedIcon /></span>
             <h3>COMMON AD SITES</h3>
             <span className="sites-count">{predefinedAdSites.length} Available</span>
           </div>
