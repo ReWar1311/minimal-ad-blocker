@@ -13,7 +13,7 @@ const DashboardPanel = ({
     <div className="dashboard-panel">
       <div className="panel-header">
         <h2 className="panel-title">PROTECTION OVERVIEW</h2>
-        <p className="panel-subtitle">Real-time security monitoring and statistics</p>
+        <p className="panel-subtitle">Real-time ADs and Trackers Blocking Status</p>
       </div>
 
       {/* Status Cards */}
@@ -29,7 +29,7 @@ const DashboardPanel = ({
         <div className="status-card">
           <div className="card-icon">🚫</div>
           <div className="card-content">
-            <h3 className="card-title">THREATS BLOCKED</h3>
+            <h3 className="card-title">REQUESTS BLOCKED</h3>
             <p className="card-value">{blockedCount.toLocaleString()}</p>
           </div>
         </div>

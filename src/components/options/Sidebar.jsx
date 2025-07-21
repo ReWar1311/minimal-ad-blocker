@@ -3,7 +3,7 @@ import React from 'react'
 const Sidebar = ({ activePanel, onPanelChange, stats }) => {
   const menuItems = [
     { id: 'dashboard', icon: '📊', label: 'DASHBOARD' },
-    { id: 'rules', icon: '⚙️', label: 'RULES ENGINE' },
+    { id: 'rules', icon: '⚙️', label: 'BLOCKING RULES' },
     { id: 'settings', icon: '🔧', label: 'SETTINGS' }
   ]
 
@@ -37,6 +37,9 @@ const Sidebar = ({ activePanel, onPanelChange, stats }) => {
           <span className="stat-value">{stats.whitelisted}</span>
         </div>
       </div>
+      <footer className="popup-footer">
+        <p className="footer-text">Made with ♥ by <a href="https://github.com/ReWar1311" target="_blank" rel="noopener noreferrer" className="footer-link">Prashant Rewar</a></p>
+      </footer>
     </div>
   )
 }

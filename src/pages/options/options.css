@@ -226,7 +226,7 @@ body {
 
 .status-card {
   background: var(--bg-secondary);
-  border-radius: var(--radius);
+  /* border-radius: var(--radius); */
   padding: 20px;
   display: flex;
   align-items: center;
@@ -278,7 +278,7 @@ body {
   gap: 2px;
   margin-bottom: 24px;
   background: var(--bg-secondary);
-  border-radius: var(--radius);
+  /* border-radius: var(--radius); */
   padding: 4px;
 }
 
@@ -1752,4 +1752,23 @@ input:checked + .toggle-slider:before {
 
 .empty-suggestion {
   font-size: var(--text-sm);
+}
+.popup-footer {
+  /* border-top: 1px solid var(--bg-accent); */
+  
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  bottom: 0;
+}
+.footer-text {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+.footer-link {
+  color: var(--red-primary);
+  font-weight: 600;
 }

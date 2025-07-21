@@ -9,7 +9,7 @@ const RULESET_IDS = {
 }
 chrome.runtime.onInstalled.addListener(async () => {
   console.log('Extension installed')
-  
+   
   try {
     await chrome.storage.local.set({
       [STORAGE_KEYS.BLOCKING_ENABLED]: true,
