@@ -34,8 +34,8 @@ export const FAMOUS_SITES_AD_MAPPING = {
     'ggpht.com/api/stats',
     'youtube.com/pagead',
     'youtube.com/ptracking',
-    "*/pagead/*",
-    "*/ad_break/*"
+    "*/pagead*",
+    "*/ad_break*"
 
   ],
   'jiohotstar.com': [ 
